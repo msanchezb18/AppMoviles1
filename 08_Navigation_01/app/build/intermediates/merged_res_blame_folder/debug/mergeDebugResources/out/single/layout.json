@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-mergeDebugResources-47:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-main-50:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-mergeDebugResources-47:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-main-50:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-mergeDebugResources-47:\\layout\\fragment_dashboard.xml",
+        "source": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-main-50:\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-mergeDebugResources-47:\\layout\\fragment_notifications.xml",
+        "source": "C:\\Users\\riama\\.gradle\\daemon\\8.7\\com.csanchezb.a08_navigation_01.app-main-50:\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "com.csanchezb.a08_navigation_01.app-mergeDebugResources-47:/layout/fragment_about.xml",
+        "source": "com.csanchezb.a08_navigation_01.app-main-50:/layout/fragment_about.xml"
+    }
+]

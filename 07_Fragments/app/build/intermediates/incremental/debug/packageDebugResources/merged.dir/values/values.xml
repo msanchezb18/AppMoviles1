@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">07_Fragments</string>
+    <string name="f1_Message">Soy el Fragmento 1</string>
+    <string name="f1_Title">Fragmento 1</string>
+    <string name="f1_btnOk">Aceptar 1</string>
+    <string name="f2_Message">Soy el Fragmento 2</string>
+    <string name="f2_Title">Fragmento 2</string>
+    <string name="f2_btnOk">Aceptar 2</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <style name="Base.Theme._07_Fragments" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme._07_Fragments" parent="Base.Theme._07_Fragments"/>
+</resources>
