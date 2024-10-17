@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JuegoDados</string>
+    <string-array name="dados_array">
+        <item>2 dados</item>
+        <item>3 dados</item>
+    </string-array>
+</resources>

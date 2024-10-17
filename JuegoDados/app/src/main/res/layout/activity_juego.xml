@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!-- Información del jugador y puntajes -->
+<LinearLayout
+android:layout_width="0dp"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:layout_weight="1"
+android:layout_gravity="center">
+
+<TextView
+android:id="@+id/tvInfo"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Información del jugador"
+android:textSize="18sp"
+android:layout_gravity="center"/>
+
+<TextView
+android:id="@+id/tvPuntaje"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Victorias: 0\nDerrotas: 0"
+android:textSize="18sp"
+android:visibility="visible"
+android:layout_gravity="center"/>
+
+<TextView
+android:id="@+id/tvElijaNumero"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Elija un número para apostar"
+android:textSize="18sp"
+android:layout_gravity="center"/>
+
+    <!-- Campo para la apuesta monetaria -->
+<EditText
+android:id="@+id/etApuesta"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="Ingrese monto a apostar"
+android:inputType="number"
+android:layout_marginBottom="16dp"/>  <!-- Margen para separar del siguiente elemento -->
+
+    <!-- Mostrar el número elegido -->
+<TextView
+android:id="@+id/tvNumeroElegido"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Número elegido: "
+android:textSize="18sp"
+android:layout_gravity="center"
+android:visibility="gone"/> <!-- Inicialmente oculto -->
+
+    <!-- Botón de salida -->
+<Button
+android:id="@+id/btnSalir"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Salir"/>
+    </LinearLayout>
+
+    <!-- Imágenes de los dados -->
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:gravity="center"
+android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/dado1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/dice_1" />
+    <ImageView
+        android:id="@+id/dado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/dice_2" />
+    <ImageView
+        android:id="@+id/dado3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/dice_3"
+        android:visibility="gone"/>
+</LinearLayout>
+
+<!-- Botón para lanzar los dados -->
+<Button
+    android:id="@+id/btnLanzarDados"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Lanzar Dados"/>
+
+<!-- Resultado del juego -->
+<TextView
+    android:id="@+id/tvResultado"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Resultado"
+    android:textSize="18sp"
+    android:visibility="gone"
+    android:layout_gravity="center"/>
+</LinearLayout>
+
+    <!-- Emoticono alineado a la derecha -->
+<ImageView
+android:id="@+id/emoticono"
+android:layout_width="100dp"
+android:layout_height="100dp"
+android:src="@drawable/feliz"
+android:layout_gravity="end|center_vertical"
+android:visibility="visible"/>
+
+    <!-- Mensaje de advertencia sobre el juego responsable -->
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Juega de manera responsable."
+android:textSize="14sp"
+android:textColor="#FF0000"
+android:layout_gravity="center"/>
+
+    <!-- Tablero de números disponibles para apostar -->
+<GridLayout
+android:id="@+id/board"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:columnCount="3"
+android:layout_gravity="center">
+
+    <!-- Botones para los números -->
+<Button
+android:id="@+id/btnNumero2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="2"/>
+<Button
+android:id="@+id/btnNumero3"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="3"/>
+<Button
+android:id="@+id/btnNumero4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="4"/>
+<Button
+android:id="@+id/btnNumero5"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="5"/>
+<Button
+android:id="@+id/btnNumero6"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="6"/>
+<Button
+android:id="@+id/btnNumero7"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="7"/>
+<Button
+android:id="@+id/btnNumero8"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="8"/>
+<Button
+android:id="@+id/btnNumero9"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="9"/>
+<Button
+android:id="@+id/btnNumero10"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="10"/>
+<Button
+android:id="@+id/btnNumero11"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="11"/>
+<Button
+android:id="@+id/btnNumero12"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="12"/>
+    </GridLayout>
+    </LinearLayout>
