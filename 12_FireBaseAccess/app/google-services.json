@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1072158238320",
+    "project_id": "lab03web03",
+    "storage_bucket": "lab03web03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072158238320:android:815e872b58684f2bb536b5",
+        "android_client_info": {
+          "package_name": "com.csanchezb.a12_firebaseaccess"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMiUxBXbtAN8JcwqpnNZzsd_fkcC7kxOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
