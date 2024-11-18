@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Header (simula el menu-component) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Investigaciones Académicas"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="24dp" />
+
+    <!-- Section for filtering options -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <Spinner
+            android:id="@+id/spinnerArea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/areas_array" />
+
+        <Button
+            android:id="@+id/btnResetArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/danger_color" />
+
+        <Spinner
+            android:id="@+id/spinnerGrado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/grado_array" />
+
+        <Button
+            android:id="@+id/btnResetGrado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/danger_color" />
+    </LinearLayout>
+
+    <!-- Search Button -->
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="16dp"
+        android:backgroundTint="@color/primary_color" />
+
+    <!-- Table for displaying investigations -->
+    <TableLayout
+        android:id="@+id/investigationsTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:stretchColumns="*" >
+
+        <TableRow>
+            <TextView android:text="Título de la Investigación" />
+            <TextView android:text="Área de Interés" />
+            <TextView android:text="Grado Académico" />
+            <TextView android:text="Autor(a)" />
+        </TableRow>
+
+        <!-- Dynamic rows will be added here programmatically in the Java/Kotlin code -->
+    </TableLayout>
+
+</LinearLayout>
