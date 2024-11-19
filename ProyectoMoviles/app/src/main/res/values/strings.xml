@@ -6,6 +6,7 @@
     <string name="title_activity_login">Validando usuario</string>
     <string name="title_activity_signup">Registrando usuario</string>
     <string name="title_activity_main">Lista de Investigaciones</string>
+    <string name="title_activity_mainMain">Investigaciones Académicas</string>
     <string name="title_activity_profile">Perfil de Usuario</string>
 
 
@@ -21,12 +22,26 @@
     <string name="prompt_login">Ingresar</string>
     <string name="prompt_select_image">Seleccionar imagen</string>
 
+    <string name="prompt_table_tittle">Titulos de la investigación</string>
+    <string name="prompt_table_area">Área de interés</string>
+    <string name="prompt_table_autorEmail">Correo del autor</string>
+    <string name="prompt_table_description">Descripción</string>
+    <string name="prompt_table_pdf">Descargar PDF</string>"
+
 
     <string-array name="grade_array">
         <item>Primer Ciclo</item>
         <item>Segundo Ciclo</item>
         <item>Tercer Ciclo</item>
         <item>Cuarto Ciclo</item>
+    </string-array>
+
+    <string-array name="areas_array">
+        <item>Matemáticas</item>
+        <item>Química</item>
+        <item>Artes</item>
+        <item>Biología</item>
+        <item>Ambiente</item>
     </string-array>
 
 </resources>
