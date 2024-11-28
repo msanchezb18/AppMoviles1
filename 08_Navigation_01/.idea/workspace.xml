@@ -32,19 +32,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81a1624e-5ac2-48bf-b1b3-0b1359f160cc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../06_Menu/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../06_Menu/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../06_Menu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../06_Menu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/SignupActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/SignupActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NavigationExample/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NavigationExample/.idea/appInsightsSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NavigationExample/.idea/appInsightsSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NavigationExample/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NavigationExample/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NavigationExample/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../NavigationExample/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NavigationExample/app/src/main/java/com/csanchezb/navigationexample/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../NavigationExample/app/src/main/java/com/csanchezb/navigationexample/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NavigationExample/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NavigationExample/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NavigationExample/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../NavigationExample/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NavigationExample/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../NavigationExample/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
