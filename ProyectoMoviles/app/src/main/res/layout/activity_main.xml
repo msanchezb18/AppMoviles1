@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,18 +17,13 @@
         app:title="@string/title_activity_mainMain"
         app:titleTextColor="@android:color/white" />
 
-
-
-    <!-- Header (simula el menu-component) -->
-
-
-    <!-- Section for filtering options -->
+    <!-- Filtering options -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal">
-
+        android:gravity="center_horizontal"
+        android:padding="8dp">
 
         <Spinner
             android:id="@+id/spinnerArea"
@@ -37,10 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minHeight="48dp"
-            android:padding="8dp"
-            android:entries="@array/areas_array" />
-
-
+            android:padding="8dp" />
 
         <Spinner
             android:id="@+id/spinnerGrado"
@@ -48,8 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:minHeight="48dp"
-            android:padding="8dp"
-            android:entries="@array/grade_array" />
+            android:padding="8dp" />
 
         <Button
             android:id="@+id/btnResetArea"
@@ -58,30 +48,70 @@
             android:text="X"
             android:textColor="@color/white"
             android:backgroundTint="@color/danger_color" />
-
-
     </LinearLayout>
 
-
-
-    <!-- Table for displaying investigations -->
+    <!-- Header for the table -->
     <TableLayout
-        android:id="@+id/investigationsTable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:stretchColumns="*" >
-
+        android:stretchColumns="0,1,2,3,4"
+        android:background="@color/light_gray">
 
         <TableRow>
-            <TextView android:text="@string/prompt_table_tittle" />
-            <TextView android:text="@string/prompt_table_area" />
-            <TextView android:text="@string/prompt_table_autorEmail" />
-            <TextView android:text="@string/prompt_table_description" />
-            <TextView android:text="@string/prompt_table_pdf" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_table_tittle"
+                android:padding="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_table_area"
+                android:padding="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_table_autorEmail"
+                android:padding="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_table_description"
+                android:padding="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_table_pdf"
+                android:padding="8dp"
+                android:textStyle="bold" />
         </TableRow>
-
-        <!-- Dynamic rows will be added here programmatically in the Java/Kotlin code -->
     </TableLayout>
 
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:contentDescription="Tabla con los proyectos disponibles">
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Tabla con los proyectos disponibles">
+
+          <TableLayout
+            android:id="@+id/investigationsTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1,2,3,4">
+            <!-- Dynamic rows will be added here -->
+            </TableLayout>
+        </HorizontalScrollView>
+
+    </ScrollView>
 </LinearLayout>

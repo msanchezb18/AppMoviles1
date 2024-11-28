@@ -1,16 +1,27 @@
 package com.csanchezb.proyectomoviles
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.widget.*
-import com.google.firebase.firestore.FirebaseFirestore
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.PropertyName
+
+data class Project(
+    @PropertyName("titulo") val title: String = "",
+    @PropertyName("area") val area: String = "",
+    @PropertyName("Correo") val authorEmail: String = "",
+    @PropertyName("descripcion") val description: String = "",
+    @PropertyName("PDF") val pdfLink: String = ""
+)
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         // Llama a las funciones principales
         updateSpinners()
         btnReset.setOnClickListener { resetFilters() }
-
     }
 
     private fun updateSpinners() {
@@ -47,24 +57,21 @@ class MainActivity : AppCompatActivity() {
                 val grados = mutableSetOf("Todos")
 
                 for (doc in querySnapshot) {
-                    val data = doc.data
-                    val area = data["area"] as? String // Safe cast to String
-                    val grado = data["grado"] as? String // Safe cast to String
+                    val area = doc["area"] as? String
+                    val grado = doc["grado"] as? String
 
-                    // Agregar valores no nulos al conjunto
                     area?.let { areas.add(it) }
                     grado?.let { grados.add(it) }
                 }
 
-                // Configurar los spinners con las opciones
                 setSpinnerOptions(spinnerArea, areas.toList())
                 setSpinnerOptions(spinnerGrado, grados.toList())
 
-                // Configurar listeners para los spinners
                 spinnerArea.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                         fetchProjects()
                     }
+
                     override fun onNothingSelected(parent: AdapterView<*>?) {}
                 }
 
@@ -72,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                         fetchProjects()
                     }
+
                     override fun onNothingSelected(parent: AdapterView<*>?) {}
                 }
             }
@@ -115,7 +123,17 @@ class MainActivity : AppCompatActivity() {
                     val data = doc.data
                     val row = TableRow(this)
 
-                    val title = TextView(this).apply { text = data["titulo"].toString() }
+                    // Crear el título como TextView
+                    val title = TextView(this).apply {
+                        text = data["titulo"].toString() // Asignar el valor del título
+                        layoutParams = TableRow.LayoutParams(
+                            TableRow.LayoutParams.WRAP_CONTENT,
+                            TableRow.LayoutParams.WRAP_CONTENT
+                        )
+                        setPadding(16, 16, 16, 16) // Añadir relleno
+                    }
+
+                    // Crear las demás celdas (área, autor, PDF)
                     val area = TextView(this).apply { text = data["area"].toString() }
                     val author = TextView(this).apply { text = data["Correo"].toString() }
                     val pdfButton = Button(this).apply {
@@ -126,17 +144,31 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
+                    // Agregar las celdas a la fila
                     row.addView(title)
                     row.addView(area)
                     row.addView(author)
                     row.addView(pdfButton)
 
+                    // Agregar la fila a la tabla
                     tableLayout.addView(row)
                 }
             }
             .addOnFailureListener { e ->
                 Log.e("Firebase", "Error al buscar proyectos", e)
             }
+    }
+
+
+
+    private fun createCell(content: String): TextView {
+        return TextView(this).apply {
+            text = content
+            setPadding(8, 8, 8, 8)
+            maxLines = 1
+            ellipsize = TextUtils.TruncateAt.END
+            gravity = Gravity.START
+        }
     }
 
     private fun resetFilters() {

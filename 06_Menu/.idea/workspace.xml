@@ -27,49 +27,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d0d24a0-3d3f-4b17-bd08-04aa17337809" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/androidTest/java/com/csanchezb/examen1/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/java/com/csanchezb/examen1/MainActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/java/com/csanchezb/examen1/ui/theme/Color.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/java/com/csanchezb/examen1/ui/theme/Theme.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/java/com/csanchezb/examen1/ui/theme/Type.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-anydpi/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/app/src/test/java/com/csanchezb/examen1/ExampleUnitTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/gradle/libs.versions.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Examen1/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/06_Menu.app.androidTest.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/06_Menu.app.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08_Navigation_01/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../08_Navigation_01/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08_Navigation_01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../08_Navigation_01/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/SignupActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/java/com/csanchezb/proyectomoviles/ui/users/SignupActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProyectoMoviles/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +121,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/riama/Downloads/JuegoDados",
+    "last_opened_file_path": "C:/Users/riama/AndroidStudioProjects/08_Navigation_01",
     "settings.editor.selected.configurable": "AndroidSdkUpdater"
   },
   "keyToStringList": {

@@ -24,7 +24,7 @@
 
     <string name="prompt_table_tittle">Titulos de la investigación</string>
     <string name="prompt_table_area">Área de interés</string>
-    <string name="prompt_table_autorEmail">Correo del autor</string>
+    <string name="prompt_table_autorEmail">Correo</string>
     <string name="prompt_table_description">Descripción</string>
     <string name="prompt_table_pdf">Descargar PDF</string>"
 
