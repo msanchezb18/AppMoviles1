@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment
 import com.csanchezb.navigationexample.databinding.FragmentHomeBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.csanchezb.navigationexample.entities.cls_Proyectos
+import com.csanchezb.navigationexample.ui.proyectos.ProyectosAdapter
 
 class ProjectFragment : Fragment() {
 
@@ -20,6 +22,8 @@ class ProjectFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var projectAdapter: ProyectosAdapter
+    private var projectList: ArrayList<cls_Proyectos> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,9 +34,11 @@ class ProjectFragment : Fragment() {
 
         firestore = FirebaseFirestore.getInstance()
 
-        // Configurar las vistas
-        updateSpinners()
+        // Inicializar el adaptador
+        projectAdapter = ProyectosAdapter(requireContext(), projectList)
+        binding.listViewProjects.adapter = projectAdapter
 
+        updateSpinners()
         binding.btnResetArea.setOnClickListener { resetFilters() }
 
         return binding.root
@@ -55,33 +61,21 @@ class ProjectFragment : Fragment() {
                 setSpinnerOptions(binding.spinnerArea, areas.toList())
                 setSpinnerOptions(binding.spinnerGrado, grados.toList())
 
-                binding.spinnerArea.onItemSelectedListener =
-                    object : AdapterView.OnItemSelectedListener {
-                        override fun onItemSelected(
-                            parent: AdapterView<*>?,
-                            view: View?,
-                            position: Int,
-                            id: Long
-                        ) {
-                            fetchProjects()
-                        }
-
-                        override fun onNothingSelected(parent: AdapterView<*>?) {}
+                binding.spinnerArea.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        fetchProjects()
                     }
 
-                binding.spinnerGrado.onItemSelectedListener =
-                    object : AdapterView.OnItemSelectedListener {
-                        override fun onItemSelected(
-                            parent: AdapterView<*>?,
-                            view: View?,
-                            position: Int,
-                            id: Long
-                        ) {
-                            fetchProjects()
-                        }
+                    override fun onNothingSelected(parent: AdapterView<*>?) {}
+                }
 
-                        override fun onNothingSelected(parent: AdapterView<*>?) {}
+                binding.spinnerGrado.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        fetchProjects()
                     }
+
+                    override fun onNothingSelected(parent: AdapterView<*>?) {}
+                }
             }
             .addOnFailureListener { e ->
                 Log.e("Firebase", "Error al obtener datos", e)
@@ -109,50 +103,19 @@ class ProjectFragment : Fragment() {
 
         query.get()
             .addOnSuccessListener { querySnapshot ->
-                binding.investigationsTable.removeAllViews() // Limpia la tabla
-
-                if (querySnapshot.isEmpty) {
-                    val row = TableRow(requireContext())
-                    val noData = TextView(requireContext()).apply { text = "No se encontraron proyectos." }
-                    row.addView(noData)
-                    binding.investigationsTable.addView(row)
-                    return@addOnSuccessListener
-                }
-
+                projectList.clear()
                 for (doc in querySnapshot) {
                     val data = doc.data
-                    val row = TableRow(requireContext())
-
-                    // Crear el título como TextView
-                    val title = TextView(requireContext()).apply {
-                        text = data["titulo"].toString() // Asignar el valor del título
-                        layoutParams = TableRow.LayoutParams(
-                            TableRow.LayoutParams.WRAP_CONTENT,
-                            TableRow.LayoutParams.WRAP_CONTENT
-                        )
-                        setPadding(16, 16, 16, 16) // Añadir relleno
-                    }
-
-                    // Crear las demás celdas (área, autor, PDF)
-                    val area = TextView(requireContext()).apply { text = data["area"].toString() }
-                    val author = TextView(requireContext()).apply { text = data["Correo"].toString() }
-                    val pdfButton = Button(requireContext()).apply {
-                        text = "Descargar PDF"
-                        setOnClickListener {
-                            val pdfUrl = data["PDF"].toString()
-                            downloadPdf(pdfUrl)
-                        }
-                    }
-
-                    // Agregar las celdas a la fila
-                    row.addView(title)
-                    row.addView(area)
-                    row.addView(author)
-                    row.addView(pdfButton)
-
-                    // Agregar la fila a la tabla
-                    binding.investigationsTable.addView(row)
+                    val project = cls_Proyectos(
+                        titulo = data["titulo"].toString(),
+                        area = data["area"].toString(),
+                        correo = data["Correo"].toString(),
+                        descripcion = data["descripcion"].toString(),
+                        pdfLink = data["PDF"].toString()
+                    )
+                    projectList.add(project)
                 }
+                projectAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
                 Log.e("Firebase", "Error al buscar proyectos", e)
@@ -163,11 +126,6 @@ class ProjectFragment : Fragment() {
         binding.spinnerArea.setSelection(0)
         binding.spinnerGrado.setSelection(0)
         fetchProjects()
-    }
-
-    private fun downloadPdf(pdfUrl: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(pdfUrl))
-        startActivity(intent)
     }
 
     override fun onDestroyView() {

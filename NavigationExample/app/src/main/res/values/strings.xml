@@ -3,16 +3,18 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Proyectos</string>
     <string name="title_notifications">Galería</string>
+    <string name="title_access">Acceso</string>
 
 
     <string name="imagen_de_categoria">Imagen del Categoría</string>
 
     <!-- Login and signup activity -->
-    <string name="title_activity_login">Validando usuario</string>
+    <string name="title_activity_access">Acceso</string>">
     <string name="title_activity_signup">Registrando usuario</string>
     <string name="title_activity_main">Lista de Investigaciones</string>
     <string name="title_activity_mainMain">Investigaciones Académicas</string>
-    <string name="title_activity_profile">Perfil de Usuario</string>
+    <string name="title_activity_Galeria">Galería</string>
+
 
 
     <string name="prompt_name">Nombre</string>
@@ -48,6 +50,8 @@
         <item>Biología</item>
         <item>Ambiente</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
