@@ -6,7 +6,7 @@ class cls_Category {
     var Description: String = ""
     var urlImage: String = ""
 
-    constructor() {}
+   constructor() {}
 
     constructor(CategoryID: Int, CategoryName: String, Description: String, urlImage: String) {
         this.CategoryID = CategoryID
