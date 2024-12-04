@@ -27,14 +27,14 @@ class ProyectosAdapter(
         // Vistas en el diseño de item_proyecto.xml
         val tituloView = listItemView!!.findViewById<TextView>(R.id.tituloProyecto)
         val areaView = listItemView.findViewById<TextView>(R.id.areaProyecto)
-        val correoView = listItemView.findViewById<TextView>(R.id.correoProyecto)
+        val usuarioView = listItemView.findViewById<TextView>(R.id.usuarioProyecto)
         val descripcionView = listItemView.findViewById<TextView>(R.id.descripcionProyecto)
         val pdfButton = listItemView.findViewById<Button>(R.id.pdfButtonProyecto)
 
         // Asignar valores del objeto cls_Proyectos
         tituloView.text = proyecto?.titulo
         areaView.text = proyecto?.area
-        correoView.text = proyecto?.correo
+        usuarioView.text = proyecto?.usuario
         descripcionView.text = proyecto?.descripcion
 
         // Manejar el botón para abrir el PDF

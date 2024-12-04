@@ -24,8 +24,9 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
-        android:id="@+id/navigation_access"
-        android:name="com.csanchezb.navigationexample.ui.Access.AccessFragment"
+        android:id="@+id/accessFragment"
+        android:name="com.csanchezb.navigationexample.ui.access.AccessFragment"
         android:label="@string/title_access"
         tools:layout="@layout/fragment_access" />
+
 </navigation>

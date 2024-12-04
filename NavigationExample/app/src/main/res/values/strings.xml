@@ -10,10 +10,12 @@
 
     <!-- Login and signup activity -->
     <string name="title_activity_access">Acceso</string>">
+    <string name="title_activity_login">Autenticando usuario</string>
     <string name="title_activity_signup">Registrando usuario</string>
     <string name="title_activity_main">Lista de Investigaciones</string>
     <string name="title_activity_mainMain">Investigaciones Académicas</string>
     <string name="title_activity_Galeria">Galería</string>
+    
 
 
 
@@ -28,13 +30,9 @@
     <string name="prompt_register">Registrarse</string>
     <string name="prompt_login">Ingresar</string>
     <string name="prompt_select_image">Seleccionar imagen</string>
-
-    <string name="prompt_table_tittle">Titulos de la investigación</string>
-    <string name="prompt_table_area">Área de interés</string>
-    <string name="prompt_table_autorEmail">Correo</string>
-    <string name="prompt_table_description">Descripción</string>
-    <string name="prompt_table_pdf">Descargar PDF</string>"
-
+    <string name="prompt_cerrarsesion">Cerrar sesion</string>"
+    
+ 
 
     <string-array name="grade_array">
         <item>Primer Ciclo</item>
@@ -50,8 +48,22 @@
         <item>Biología</item>
         <item>Ambiente</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="areas">
+        <item>Biología</item>
+        <item>Química</item>
+        <item>Matemática</item>
+        <item>Ambiente</item>
+        <item>Tecnología</item>
+        <item>Artes</item>
+    </string-array>
+    <string-array name="grades">
+        <item>Primer Ciclo</item>
+        <item>Segundo Ciclo</item>
+        <item>Tercer Ciclo</item>
+        <item>Cuarto Ciclo</item>
+    </string-array>
 
 
 </resources>

@@ -109,7 +109,7 @@ class ProjectFragment : Fragment() {
                     val project = cls_Proyectos(
                         titulo = data["titulo"].toString(),
                         area = data["area"].toString(),
-                        correo = data["Correo"].toString(),
+                        usuario = data["usuario"].toString(),
                         descripcion = data["descripcion"].toString(),
                         pdfLink = data["PDF"].toString()
                     )
