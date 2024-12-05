@@ -1,20 +1,19 @@
 package com.csanchezb.navigationexample.ui.proyectos
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
+import android.graphics.BitmapFactory
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.csanchezb.navigationexample.R
 import com.csanchezb.navigationexample.entities.cls_Galeria
-import com.csanchezb.navigationexample.ui.proyectos.ImagenesAdapter
+import com.google.firebase.storage.FirebaseStorage
 
-
-class GaleriaAdapter (
+class GaleriaAdapter(
     private val investigaciones: List<cls_Galeria>
 ) : RecyclerView.Adapter<GaleriaAdapter.ViewHolder>() {
 
@@ -35,12 +34,45 @@ class GaleriaAdapter (
         holder.titulo.text = investigacion.tittle
         holder.descripcion.text = investigacion.descrip
 
-        // Configura el RecyclerView horizontal para las imágenes
+        // Configurar RecyclerView horizontal para las imágenes
         holder.imagenesRecyclerView.layoutManager =
             LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
-        holder.imagenesRecyclerView.adapter = ImagenesAdapter(investigacion.imagenesUrl)
+        holder.imagenesRecyclerView.adapter = ImagenesInnerAdapter(investigacion.imagenesUrl)
     }
 
-
     override fun getItemCount() = investigaciones.size
+
+    // Adaptador interno para las imágenes
+    inner class ImagenesInnerAdapter(
+        private val imagenesUrls: List<String>
+    ) : RecyclerView.Adapter<ImagenesInnerAdapter.ImagenViewHolder>() {
+
+        inner class ImagenViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+            val imageView: ImageView = view.findViewById(R.id.imagenView)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImagenViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_imagen, parent, false)
+            return ImagenViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: ImagenViewHolder, position: Int) {
+            val imagenUrl = imagenesUrls[position]
+
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(imagenUrl)
+            storageReference.getBytes(5 * 1024 * 1024)
+                .addOnSuccessListener { bytes ->
+                    val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                    holder.imageView.setImageBitmap(bitmap)
+                }
+                .addOnFailureListener { exception ->
+                    Log.e("Firebase", "Error al descargar la imagen: ${exception.message}")
+                    holder.imageView.setImageResource(R.drawable.ic_launcher_background)
+                }
+        }
+
+        override fun getItemCount() = imagenesUrls.size
+    }
+
 }

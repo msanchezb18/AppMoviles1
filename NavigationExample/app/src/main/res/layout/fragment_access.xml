@@ -78,6 +78,4 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"/>
 
-
-
 </LinearLayout>

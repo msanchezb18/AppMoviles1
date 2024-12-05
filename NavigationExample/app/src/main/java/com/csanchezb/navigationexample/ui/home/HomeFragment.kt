@@ -48,18 +48,21 @@ class ProjectFragment : Fragment() {
         firestore.collection("Pruebas").get()
             .addOnSuccessListener { querySnapshot ->
                 val areas = mutableSetOf("Todos")
-                val grados = mutableSetOf("Todos")
+                val ciclos = mutableSetOf("Todos")
 
                 for (doc in querySnapshot) {
                     val area = doc["area"] as? String
-                    val grado = doc["grado"] as? String
+                    val ciclo = doc["ciclo"] as? String
 
                     area?.let { areas.add(it) }
-                    grado?.let { grados.add(it) }
+                    ciclo?.let { ciclos.add(it) }
                 }
 
+                Log.d("Firebase", "Areas: $areas")  // Verificar áreas obtenidas
+                Log.d("Firebase", "ciclo: $ciclos")  // Verificar grados obtenidos
+
                 setSpinnerOptions(binding.spinnerArea, areas.toList())
-                setSpinnerOptions(binding.spinnerGrado, grados.toList())
+                setSpinnerOptions(binding.spinnerGrado, ciclos.toList())
 
                 binding.spinnerArea.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -71,11 +74,13 @@ class ProjectFragment : Fragment() {
 
                 binding.spinnerGrado.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        Log.d("Spinner", "Item seleccionado: ${parent?.getItemAtPosition(position)}")  // Verificar qué se seleccionó
                         fetchProjects()
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>?) {}
                 }
+
             }
             .addOnFailureListener { e ->
                 Log.e("Firebase", "Error al obtener datos", e)
@@ -83,22 +88,24 @@ class ProjectFragment : Fragment() {
     }
 
     private fun setSpinnerOptions(spinner: Spinner, options: List<String>) {
+        Log.d("Spinner", "Opciones: $options")  // Verificar las opciones que estás pasando al spinner
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
     }
 
+
     private fun fetchProjects() {
         var query: Query = firestore.collection("Pruebas")
 
         val selectedArea = binding.spinnerArea.selectedItem.toString()
-        val selectedGrado = binding.spinnerGrado.selectedItem.toString()
+        val selectedCiclo = binding.spinnerGrado.selectedItem.toString()
 
         if (selectedArea != "Todos") {
             query = query.whereEqualTo("area", selectedArea)
         }
-        if (selectedGrado != "Todos") {
-            query = query.whereEqualTo("grado", selectedGrado)
+        if (selectedCiclo != "Todos") {
+            query = query.whereEqualTo("grado", selectedCiclo)
         }
 
         query.get()

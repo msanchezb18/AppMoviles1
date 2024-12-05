@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.csanchezb.navigationexample.databinding.FragmentNotificationsBinding
 import com.csanchezb.navigationexample.entities.cls_Galeria
 import com.csanchezb.navigationexample.ui.proyectos.GaleriaAdapter
-import com.csanchezb.navigationexample.ui.proyectos.ImagenesAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.storage.FirebaseStorage
@@ -26,6 +25,7 @@ class NotificationsFragment : Fragment() {
 
     private lateinit var firestore: FirebaseFirestore
     private lateinit var investigacionesAdapter: GaleriaAdapter
+
     private val investigaciones = mutableListOf<cls_Galeria>()
 
     override fun onCreateView(
@@ -33,7 +33,6 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-
 
         firestore = FirebaseFirestore.getInstance()
 
@@ -47,7 +46,6 @@ class NotificationsFragment : Fragment() {
         binding.btnResetArea.setOnClickListener { resetFilters() }
 
         return binding.root
-
     }
 
     private fun updateSpinners() {
@@ -96,68 +94,61 @@ class NotificationsFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun cargarDatos() {
-        var query: Query = firestore.collection("Pruebas")
+        val query = firestore.collection("Pruebas")
 
-        val selectedArea = binding.spinnerArea.selectedItem.toString()
-        val selectedGrado = binding.spinnerGrado.selectedItem.toString()
+        query.get().addOnSuccessListener { result ->
+            investigaciones.clear()
+            investigacionesAdapter.notifyDataSetChanged()
 
-        if (selectedArea != "Todos") {
-            query = query.whereEqualTo("area", selectedArea)
-        }
-        if (selectedGrado != "Todos") {
-            query = query.whereEqualTo("grado", selectedGrado)
-        }
+            val storageRef = FirebaseStorage.getInstance().reference
 
-        firestore.collection("Pruebas")
-            .get()
-            .addOnSuccessListener { result ->
-                investigaciones.clear()
-                for (document in result) {
-                    val titulo = document.getString("titulo") ?: ""
-                    val descripcion = document.getString("descripcion") ?: ""
-                    val imagenPaths = listOf(
-                        document.getString("imagenPath1") ?: "",
-                        document.getString("imagenPath2") ?: "",
-                        document.getString("imagenPath3") ?: "",
-                        document.getString("imagenPath4") ?: ""
-                    )
+            for (document in result) {
+                val titulo = document.getString("titulo") ?: ""
+                val descripcion = document.getString("descripcion") ?: ""
+                val imagenPaths = listOfNotNull(
+                    document.getString("imagenPath1"),
+                    document.getString("imagenPath2"),
+                    document.getString("imagenPath3"),
+                    document.getString("imagenPath4")
+                )
 
-                    // Obtener las URLs de las imágenes desde Firebase Storage
-                    val imagenUrls = mutableListOf<String>()
-                    val storageRef = FirebaseStorage.getInstance().reference
-                    val downloadUrls = mutableListOf<String>()
+                // Crear la investigación y agregarla a la lista inmediatamente
+                val investigacion = cls_Galeria(
+                    tittle = titulo,
+                    descrip = descripcion,
+                    imagenesUrl = mutableListOf() // Se llenará más adelante
+                )
+                investigaciones.add(investigacion)
+                investigacionesAdapter.notifyDataSetChanged()
 
-                    imagenPaths.forEach { imagenPath ->
-                        if (imagenPath.isNotEmpty()) {
-                            val storageImageRef = storageRef.child(imagenPath)
-                            storageImageRef.downloadUrl.addOnSuccessListener { uri ->
-                                downloadUrls.add(uri.toString())
-                                if (downloadUrls.size == imagenPaths.size) {
-                                    // Solo añadir el objeto una vez que todas las URLs se hayan descargado
-                                    investigaciones.add(
-                                        cls_Galeria(
-                                            tittle = titulo,
-                                            descrip = descripcion,
-                                            imagenesUrl = imagenUrls
-                                        )
-                                    )
-                                    investigacionesAdapter.notifyDataSetChanged()
-                                }
-                            }
-                            // En caso de fallo en la descarga de una imagen, añadir una URL vacía
-                            storageImageRef.downloadUrl.addOnFailureListener {
-                                downloadUrls.add("")
-                            }
-                        } else {
-                            downloadUrls.add("")
+                if (imagenPaths.isEmpty()) {
+                    // Si no hay imágenes, simplemente continúa
+                    continue
+                }
+
+                // Cargar imágenes si hay rutas
+                val imagenUrls = mutableListOf<String>()
+                imagenPaths.forEach { path ->
+                    val fullReference = storageRef.child(path)
+                    fullReference.downloadUrl.addOnSuccessListener { uri ->
+                        imagenUrls.add(uri.toString())
+
+                        // Actualizar la investigación una vez que todas las imágenes estén listas
+                        if (imagenUrls.size == imagenPaths.size) {
+                            investigacion.imagenesUrl.addAll(imagenUrls)
+                            investigacionesAdapter.notifyDataSetChanged()
                         }
+                    }.addOnFailureListener { exception ->
+                        Log.e("Firebase", "Error al obtener la URL: ${exception.message}")
                     }
                 }
             }
-            .addOnFailureListener { exception ->
-                Log.e("Firestore", "Error al cargar datos", exception)
-            }
+        }.addOnFailureListener { exception ->
+            Log.e("Firestore", "Error al cargar datos", exception)
+        }
     }
+
+
 
     private fun resetFilters() {
         binding.spinnerArea.setSelection(0)
@@ -169,4 +160,8 @@ class NotificationsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+}
+
+private fun <E> List<E>.addAll(imagenUrls: MutableList<E>) {
+
 }

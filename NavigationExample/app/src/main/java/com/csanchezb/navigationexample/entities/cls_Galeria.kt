@@ -3,7 +3,7 @@ package com.csanchezb.navigationexample.entities
 class cls_Galeria {
     var tittle: String = ""
     var descrip: String = ""
-    lateinit var imagenesUrl: List<String>
+    var imagenesUrl: List<String> = emptyList() // Inicialización segura
 
     constructor() {}
 

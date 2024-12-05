@@ -108,7 +108,7 @@ class AccessFragment : Fragment() {
 
     private fun goToSignup() {
         // Navegar al fragmento de registro
-        findNavController().navigate(R.id.navigation_dashboard)
+        findNavController().navigate(R.id.fragment_signup)
     }
 
     private fun showAlert(titu: String, mssg: String) {

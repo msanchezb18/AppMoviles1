@@ -14,9 +14,8 @@
     <string name="title_activity_signup">Registrando usuario</string>
     <string name="title_activity_main">Lista de Investigaciones</string>
     <string name="title_activity_mainMain">Investigaciones Académicas</string>
-    <string name="title_activity_Galeria">Galería</string>
-    
-
+    <string name="title_activity_Galeria">Galería</string>.
+    <string name="title_activity_profile">Foto de Perfil</string>
 
 
     <string name="prompt_name">Nombre</string>
@@ -31,8 +30,7 @@
     <string name="prompt_login">Ingresar</string>
     <string name="prompt_select_image">Seleccionar imagen</string>
     <string name="prompt_cerrarsesion">Cerrar sesion</string>"
-    
- 
+
 
     <string-array name="grade_array">
         <item>Primer Ciclo</item>
@@ -64,6 +62,7 @@
         <item>Tercer Ciclo</item>
         <item>Cuarto Ciclo</item>
     </string-array>
+
 
 
 </resources>

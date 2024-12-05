@@ -29,4 +29,10 @@
         android:label="@string/title_access"
         tools:layout="@layout/fragment_access" />
 
+    <fragment
+        android:id="@+id/fragment_signup"
+        android:name="com.csanchezb.navigationexample.ui.signup.SignupFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/fragment_signup" />
+
 </navigation>
